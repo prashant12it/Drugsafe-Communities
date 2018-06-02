@@ -1,0 +1,54 @@
+$color-theme: #1bbc9b;
+$text-color: #333333;
+$gray-color: #8E8F93;
+$white-color: #ffffff;
+
+body {
+  .alert-info,.alert-success {
+    background-color: #e0ebf9;
+    border-color: #e0ebf9;
+    color: $color-theme;
+  }
+  .breadcrumb{
+    color: $gray-color;
+  }
+  .forgotpassword {
+    .form-title, .form-subtitle {
+      color: $text-color;
+    }
+    .btn-cancel {
+      background-color: $gray-color;
+      color: $white-color !important;
+      border: 1px solid $gray-color;
+    }
+  }
+  .logo{
+    img{height:100px;}
+  }
+
+}
+.page-sidebar-closed-hide-logo{
+  .page-logo a{
+    display: inherit;
+  }
+}
+.page-sidebar-closed-hide-logo.page-sidebar-closed{
+  .page-logo a{
+    display: none;
+  }
+}
+
+@media (max-width:767px) {
+  .login{
+    .pull-right{
+      float: none;
+      clear: both;
+    }
+  }
+  body {
+    .logo{
+      img{width:100%;
+      height: auto;}
+    }
+  }
+}

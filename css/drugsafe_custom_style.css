@@ -1,0 +1,166 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 18, 2016, 11:05:08 AM
+    Author     : Admin
+*/
+.login .logo .site-title{text-transform: uppercase;}
+.admin-logo{height: 75px;padding:8px;}
+.pull-left {
+    color: #e73d4a;
+   
+}
+.read-only {
+  cursor: not-allowed;
+ input:read-only; 
+}
+.dataTables_paginate strong{display:inline-block;background:#1bbc9b;padding:5px 7px;color:#fff;margin-left:4px;}
+.dataTables_paginate a{display:inline-block;background:#ccc;padding:5px 7px;color:#000;margin-left:4px;}
+
+.search{
+/*padding: 0px;*/
+margin-bottom: 16px;
+}
+.help-block p{margin:5px;}
+
+.subCaption{
+    margin-bottom: 20px;
+    margin-right: 130px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.portlet_title{
+     text-align: center;
+}
+.portlet_list_title{
+     text-align: left;
+}
+.radio{
+    padding-top: 0px !important;
+}
+.form-horizontal .radio span {
+    margin-top: 4px;
+}
+.text{
+  text-align: center;  
+}
+
+.text-style{
+  text-align: right;  
+}
+.info{
+ margin-left: 0px;   
+}
+.Date_picker{
+    display: block;
+    left: 761.5px;
+    top: 196px;  
+}
+
+.Forum{
+  float: none;
+  height:40px;
+  background-color: #1bbc9b ;
+ text-align: center;
+ line-height: 2.5;
+ padding: 4px 28px;
+ 
+ 
+  
+}
+
+.Reply{
+  float: none;
+  background-color: #1bbc9b ;
+  height:40px;
+  text-margin : left;
+  line-height: 2.5;
+  padding: 4px 28px;
+  margin-bottom : 15px;
+ 
+  
+}
+.reply-editor{
+   /*margin-top: 300px; */
+}
+.cmnts{
+     margin-top: 30px;  
+}
+
+.mdl_align{
+  text-align: center;    
+}
+.text_clr{
+     color: #1bbc9b;
+     margin-top: 10px;  
+     margin-bottom : 1px;  
+     text-align: center;   
+}
+.text_cmnt{
+     color: #1bbc9b;
+     margin-top: 10px;  
+     margin-bottom : 1px;
+     text-align: center;     
+}
+.text_cmntData{
+     
+     margin-top: 10px;  
+     margin-bottom : 1px;
+     text-align: center;      
+}
+.cmntDetais{
+       text-align: right; 
+}
+.Ckbtn{
+     margin-top: 20px;  
+}
+.Text_blur{
+  color: grey;  
+}
+.Text{
+  color: #1bbc9b;  
+}
+.Total_align{
+  text-align: right;
+padding: 4px 28px;  
+}
+.Text_align{
+text-align: right;
+margin-bottom: 10px;
+}
+.err{color: red}
+
+
+.totalpr{margin-bottom: 0px}
+.clr{color: red}
+.clr_green{color: green}
+
+.Text_align_popup{
+text-align: center;
+margin-top: 17px;
+ margin-bottom: 20px;
+ 
+}
+.totalsearchalign{
+margin-bottom: -5px;
+padding: 4px 0px; 
+}
+
+.table_align {
+    
+    margin-top: 20px;
+}
+.padding{
+  
+margin-left: -14px;
+}
+.search_align{
+ margin-left: 0px;   
+}
+.equalizer{
+line-height: 19px;  
+}

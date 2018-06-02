@@ -1,0 +1,149 @@
+3434
+
+
+
++++++++++++++++++++++++++++++++++++++++++
+
+send mail 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function check_for_free_flag_singleinvitation(cvr,companyname,business,nid,butonid)
+{
+	if($("#send_as_free_"+cvr).is(':checked'))
+	{
+		$.post('/ajax_check_contacted.php',{nid:nid},function(result){
+		if(result!='')
+		{
+			if(result=='1')
+			{
+				CheckAndSendMail(cvr,companyname,business,nid,butonid);
+			}
+			else
+			{
+				if(result=='2')
+				{
+					con= confirm('you sure you want to send this task for free? The task creator was contacted');
+					if(con)
+					{
+						CheckAndSendMail(cvr,companyname,business,nid,butonid);
+					}
+					else
+					{
+					
+						return false;
+					}
+				}
+			}
+		}
+		});
+	}
+	else
+	{
+		CheckAndSendMail(cvr,companyname,business,nid,butonid);
+	}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+function CheckAndSendMail(cvr,companyname,business,nid,butonid)
+{
+	var cvr_invitations_cnt=$('#cvr_'+cvr+'_invitations_cnt').val();
+	var cvr_guarntee_cnt=$('#cvr_'+cvr+'_guarntee_cnt').val();
+	var cvr_expiry_date=$('#cvr_'+cvr+'_expiry_days').val();
+	var paid_user=$('#cvr_'+cvr+'_paying_user').val();
+	var confirm_msg='';
+
+	if(paid_user)
+	{
+		confirm_msg=confirm('The company has received '+cvr_invitations_cnt+' invitations minimum '+cvr_guarntee_cnt+', that is '+cvr_expiry_date+' days to maturity');
+	}
+	else
+	{
+		confirm_msg='1';
+	}
+
+	if(confirm_msg)
+	{
+
+		$("#"+butonid).attr("disabled", true);
+		$("#"+butonid).removeAttr("onclick");
+		$("#"+butonid).unbind("click");
+		$("#loader_"+cvr).css('display','block');
+		var flagShow=0;
+		if(($("#oldmail"+cvr).is(':checked')) && $("#autocreationmailsent_"+cvr).is(':checked'))
+		{
+			alert('Maximun one invitation allowed.');
+			$("#oldmail"+cvr).removeAttr('checked');
+			$("#autocreationmailsent_"+cvr).removeAttr('checked');
+			$("#"+butonid).removeAttr("disabled");
+			$("#"+butonid).attr("enabled",true);
+			//$("#"+butonid).attr("onclick",CheckAndSendMail(cvr,companyname,business,nid,butonid));
+			$("#"+butonid).bind("click",function(){CheckAndSendMail(cvr,companyname,business,nid,butonid)});
+			$("#loader_"+cvr).css('display','none');		
+			return false;
+		}
+		if(($("#autocreationmailsent_"+cvr).is(':checked')) && $("#oldmail"+cvr).is(':checked') && $("#saleinfo_"+cvr).is(':checked'))
+		{
+			alert('Maximun one invitation allowed.');
+			$("#autocreationmailsent_"+cvr).removeAttr('checked');
+			$("#oldmail"+cvr).removeAttr('checked');
+			$("#saleinfo_"+cvr).removeAttr('checked');
+			$("#"+butonid).removeAttr("disabled");
+			$("#"+butonid).attr("enabled",true);
+			//$("#"+butonid).attr("onclick",CheckAndSendMail(cvr,companyname,business,nid,butonid));
+			$("#"+butonid).bind("click",function(){CheckAndSendMail(cvr,companyname,business,nid,butonid)});
+			$("#loader_"+cvr).css('display','none');
+			
+			return false;
+		}
+
+		if($("#sms_"+cvr).is(':checked'))
+		{
+				
+			$.post('/PersonWhomtalk.php',{check:1,cvr:cvr},function(result){
+
+				if(result)
+				{
+					if(result==1)
+					{
+						/*var confirmmsg= confirm('There is no name of the person you spoke with for this company, please enter the name of the person you spoke with and click save ');*/
+
+						jConfirm('There is no name of the person you spoke with for this company, please enter the name of the person you spoke with and click save', 'addperson', function(r) {
+						   if(r)
+						   {
+								$('#person_cvr').val(cvr);
+								$('#person_companyname').val(companyname);
+								$('#person_business').val(business);
+								$('#person_nid').val(nid);
+								$('#person_buttonid').val(butonid);
+
+								tb_show(null,'#TB_inline?height=350&width=350&inlineId=div_addPerson',null);
+						   }
+						   else
+							{
+							   //sendEmail(cvr,companyname,business,nid,butonid);
+							   checkUserEmail(cvr,companyname,business,nid,butonid);
+							}
+						});
+
+					}
+					else if(result==2)
+					{
+						//sendEmail(cvr,companyname,business,nid,butonid);
+						checkUserEmail(cvr,companyname,business,nid,butonid);
+					}
+				}
+			});
+		
+		}
+		else
+		{
+			//sendEmail(cvr,companyname,business,nid,butonid);
+			checkUserEmail(cvr,companyname,business,nid,butonid);
+		}
+	}
+}

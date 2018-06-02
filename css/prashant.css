@@ -1,0 +1,88 @@
+body .alert-info, body .alert-success {
+  background-color: #e0ebf9;
+  border-color: #e0ebf9;
+  color: #1bbc9b;
+}
+
+body .alert-success.meeting-note{
+  background-color: #fff;
+  border-color: #fff;
+  color: #666;
+}
+
+body .breadcrumb {
+  color: #8E8F93;
+}
+
+body .forgotpassword .form-title, body .forgotpassword .form-subtitle {
+  color: #333333;
+}
+
+body .forgotpassword .btn-cancel {
+  background-color: #8E8F93;
+  color: #ffffff !important;
+  border: 1px solid #8E8F93;
+}
+.inds{float: left}
+.group-title{text-align: center; font-size: 22px; font-weight: 600}
+.group-title .custom-save-img{float:right; margin: 0 5px}
+.inds .pie-title{display: none}
+body .logo img {
+  height: 100px;
+}
+
+.page-sidebar-closed-hide-logo .page-logo a {
+  display: inherit;
+}
+
+.page-sidebar-closed-hide-logo.page-sidebar-closed .page-logo a {
+  display: none;
+}
+.collapse-sec{background-image: url("/assets/global/img/portlet-expand-icon-white.png"); width: 14px}
+.collapse-sec.collapsed{background-image: url("/assets/global/img/portlet-collapse-icon-white.png");}
+.media.replyoncomment, .media.replyoncomment .media-body{overflow: visible}
+.drugtypeselect .custom-select a span{width:120px}
+.clienttypeselect .custom-select a span{width:215px}
+.industryselect .custom-select a span{width:220px}
+.modal-custom-heading{font-weight: 500; color: #16997E}
+#loader {
+  display:    none;
+  position:   fixed;
+  z-index:    99999;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba( 255, 255, 255, .8 )
+  url('../images/loading.gif')
+  50% 50%
+  no-repeat;
+}
+.table-checkable tr > th:first-child, .table-checkable tr > td:first-child{
+  word-wrap: break-word;
+}
+.highcharts-label.creategap{margin-bottom: 15px}
+.search-bar .form-group{margin: 0px 0px 10px}
+.search-bar .form-group .date-picker.input-medium{width: 100% !important;}
+.search-bar .form-group .custom-select a{width: 100%}
+.search-bar .form-group .custom-select a span{width: 100%}
+@media (max-width: 767px) {
+  .login .pull-right {
+    float: none !important;
+    clear: both;
+  }
+  body .logo img {
+    width: 100%;
+    height: auto;
+  }
+}
+.stateReginolhidden{display:none;}
+.fa.fa-circle.enable {
+    color: green;
+}
+.fa.fa-circle.disabled {
+    color: red;
+}
+.highcharts-credits {
+    display: none;
+}
